@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: center;
 
-
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -34,14 +33,13 @@
       background-color: var(--color-grey-light-3);
     }
 
-    &::-webkit-input-placeholder{
-        font-weight: 100;
-        color: var(--color-grey-light-4);
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
     }
 
-    &__input:focus + &__button{
-        background-color: var(--color-grey-light-3);
-
+    &__input:focus + &__button {
+      background-color: var(--color-grey-light-3);
     }
   }
 
@@ -65,27 +63,24 @@
 ///////////////////////////////////
 // USER NAVIGATION
 .user-nav {
- // background-color: orangered;
+  // background-color: orangered;
   align-self: stretch;
   display: flex;
   align-items: center;
 
-    & > *{
-        padding: 0 2rem;
-        cursor: pointer;
-        height: 100%; 
-        display: flex;
-        align-items: center;
-    }
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-    & > *:hover{
-        background-color: var(--color-grey-light-2);
-        
-    }
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
   &__icon-box {
-     
     position: relative;
-
   }
   &__icon {
     height: 2.25rem;
@@ -94,19 +89,18 @@
   }
 
   &__notification {
-      font-size: .8rem;
-      height: 1.75rem;
-      width: 1.75rem;
-      border-radius: 50%;
-      background-color: var(--color-primary);
-      color: #fff;
-      position: absolute;
-      top:1.5rem;
-      right: 1.1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__user {
@@ -123,22 +117,62 @@
 // SIDE NAVIGATION
 
 .side-nav {
-  &__item{
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
 
-  }
-  &__link{
+  &__item {
+    position: relative;
 
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
-  &__icon{
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  &__item:active::before {
+    background-color: var(--color-primary-light);
+  }
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
     width: 1.75rem;
     height: 1.75rem;
+    margin-right: 2rem;
+    fill: currentColor; //useful feature to show link the color to the parent element
   }
 }
 ///////////////////////////////////
 // LEGAL TEXT
-.legal{
+.legal {
   font-size: 1.2rem;
   color: var(--color-grey-light-4);
   text-align: center;
-  padding: 2.5 rem;
+  padding: 2.5rem;
 }
